@@ -1,4 +1,5 @@
 import pandas
+import random
 
 #functions go here
 
@@ -197,6 +198,21 @@ print(mini_movie_frame.to_string(index=False))
 print()
 print(f"total_paid: ${total_paid:.2f}")
 print(f"total_profit: ${total_profit:.2f}")
+
+#choose a random winner
+winner = random.choice(all_names)
+
+#find the index of the winner (position in list)
+winner_index = all_names.index(winner)
+print("winner", winner, "list position", winner_index)
+
+#retrive total won
+total_won = mini_movie_frame.at[winner_index, 'Total']
+
+#winner announcement
+
+print(f"the lucky winner is {winner}. their ticket worth {total_won} is free!")
+
 
 if tickets_sold == MAX_TICKETS:
     input(f"you have sold all the tickets (ie: {MAX_TICKETS} tickets)")
